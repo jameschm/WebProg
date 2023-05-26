@@ -5,10 +5,20 @@
 <title>Title</title>
 </head>
 <body>
+
+{% load static %} <!-- Ajoutez cette ligne pour charger les fichiers statiques si nécessaire -->
+
+{% if livre.nombre_pages > 500 %}
+    <p>gros livre</p>
+{% else %}
+    <p>moyen livre</p>
+{% endif %}
+
 <form method="post" action="/bibliotheque/traitement/">
 {% csrf_token %}
 {{ form.as_ul }}
-<input type="submit" value="envoyer␣les␣données"\>
+<input type="submit" value="Envoyer les données" />
 </form>
+
 </body>
 </html>
